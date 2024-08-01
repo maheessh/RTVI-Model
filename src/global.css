@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --default-font-size: 0.875rem; /* Example equivalent of theme(fontSize.sm) */
+  --app-padding: 12px;
+  --layout-aside-width: 100%;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --app-padding: 1rem;
+    --default-font-size: 1rem; /* Example equivalent of theme(fontSize.base) */
+    --layout-aside-width: 320px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --layout-aside-width: 380px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus-visible {
+  outline-color: black;
+  outline-offset: 2px;
+  outline-width: 2px;
+}
+
+html {
+  font-size: var(--default-font-size);
+}
+
+html,
+body {
+  background-color: #F0F4F8; /* Replace with theme(colors.primary.50) */
+  color: #1F2937; /* Replace with theme(colors.primary.900) */
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Replace with theme(fontFamily.sans) */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  margin: 0;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1;
+  min-height: 100svh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 0 var(--app-padding) var(--app-padding) var(--app-padding);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.borderClip {
+  background-clip: padding-box, border-box;
+}
+
+samp {
+  font-family: 'Fira Mono', monospace; /* Replace with theme(fontFamily.mono) */
+  display: inline;
+  font-size: 0.75rem; /* Replace with theme(fontSize.xs) */
+  padding: 0 0.4em;
+  line-height: 1;
+  border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.05rem;
+}
+
+dialog {
+  background: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replace with theme(boxShadow.long) */
+  border-radius: 1.5rem; /* Replace with theme(borderRadius.3xl) */
+  animation: appear 0.3s ease-out;
+}
+
+dialog::backdrop {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
